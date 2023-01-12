@@ -1,4 +1,7 @@
 //Carrito de compra
+//Declarar Funciones
+const subTotal = (m, t, a) => (m + t + a)
+const pagoTotal = (sb, i) => (sb + (sb*i))
 //constantes
 iva = 0.17
 mouse = 590
@@ -43,14 +46,12 @@ let costoAudifonos = 0
             break
         
         case "4":
-            subTotal = costoMouse + costoTeclado + costoAudifonos
-            pagoTotal = subTotal + (subTotal*iva)
-
+            subTotal(costoMouse, costoTeclado, costoAudifonos)
             alert(`Total Mouse S/IVA: ${costoMouse}`)
             alert(`Total Teclado S/IVA: ${costoTeclado}`)
             alert(`Total Audifonos S/IVA: ${costoAudifonos}`)
-            alert(`Pago Total sin IVA: ${subTotal}`)
-            alert(`Total a Pagar con IVA: ${pagoTotal}`)
+            alert(`Pago Total sin IVA: ${subTotal(costoMouse, costoTeclado, costoAudifonos)}`)
+            alert(`Total a Pagar con IVA: ${pagoTotal(subTotal(costoMouse, costoTeclado, costoAudifonos), iva)}`)
             alert("Gracias por su compra!")
             break
 
